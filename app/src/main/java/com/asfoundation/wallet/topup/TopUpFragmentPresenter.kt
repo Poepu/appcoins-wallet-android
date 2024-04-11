@@ -15,7 +15,6 @@ import com.asfoundation.wallet.billing.paypal.usecases.IsPaypalAgreementCreatedU
 import com.asfoundation.wallet.billing.paypal.usecases.RemovePaypalBillingAgreementUseCase
 import com.asfoundation.wallet.topup.TopUpData.Companion.DEFAULT_VALUE
 import com.asfoundation.wallet.ui.iab.PaymentMethod
-import com.asfoundation.wallet.ui.iab.PaymentMethodsPresenter
 import com.asfoundation.wallet.ui.iab.PaymentMethodsView.PaymentMethodId
 import io.reactivex.Completable
 import io.reactivex.Observable
@@ -474,11 +473,11 @@ class TopUpFragmentPresenter(
         .subscribe(
           {
             view.hideLoading()
-            android.util.Log.d(PaymentMethodsPresenter.TAG, "Agreement removed")
+            android.util.Log.d(TAG, "Agreement removed")
           },
           {
             view.hideLoading()
-            logger.log(PaymentMethodsPresenter.TAG, "Agreement Not Removed")
+            logger.log(TAG, "Agreement Not Removed")
           }
         )
     )
